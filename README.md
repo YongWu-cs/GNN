@@ -24,9 +24,12 @@ d.After screening, we obtained about 50k data sets and divided them into trainin
 #### I.cINN
 All code is based on FrEIA[^7] and pytorch.And opencv-python is used to implement joint filtering upsampling.
 
-##### a. architeture
+##### a. celebA architeture
 In terms of the overall architecture, we chose the network architecture of GUIDED IMAGE GENERATION WITH CONDITIONAL INVERTIBLE NEURAL NETWORKS[^8].
 ![cinn_architeture](https://github.com/YongWu-cs/GNN/blob/main/pic_source/architecture.png)
+In addition, for feature extraction of l channel, we also tried resnet_18 as a feature extractor.
+##### b. our own dataset architeture
+TBD
 
 #### II.VAE
 
