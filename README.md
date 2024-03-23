@@ -24,6 +24,8 @@ d.After screening, we obtained about 50k data sets and divided them into trainin
 #### I.cINN
 All code is based on FrEIA[^7] and pytorch.And opencv-python is used to implement joint filtering upsampling.
 
+##### a. architeture
+In terms of the overall architecture, we chose the network architecture of GUIDED IMAGE GENERATION WITH CONDITIONAL INVERTIBLE NEURAL NETWORKS[^8].
 
 
 #### II.VAE
@@ -77,4 +79,11 @@ All code is based on FrEIA[^7] and pytorch.And opencv-python is used to implemen
         year = {2018-2022},
         url = {https://github.com/vislearn/FrEIA}
       }
-
+[^8]: @misc{ardizzone2019guided,
+      title={Guided Image Generation with Conditional Invertible Neural Networks}, 
+      author={Lynton Ardizzone and Carsten Lüth and Jakob Kruse and Carsten Rother and Ullrich Köthe},
+      year={2019},
+      eprint={1907.02392},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+      }
