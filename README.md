@@ -26,7 +26,7 @@ All code is based on FrEIA[^7] and pytorch.And opencv-python is used to implemen
 
 ##### a. architeture
 In terms of the overall architecture, we chose the network architecture of GUIDED IMAGE GENERATION WITH CONDITIONAL INVERTIBLE NEURAL NETWORKS[^8].
-[!cinn_architeture]()
+![cinn_architeture](https://github.com/YongWu-cs/GNN/blob/main/pic_source/architecture.png)
 
 #### II.VAE
 
