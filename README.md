@@ -22,6 +22,10 @@ d.After screening, we obtained about 50k data sets and divided them into trainin
 
 ### 3. Model
 #### I.cINN
+All code is based on FrEIA[^7] and pytorch.And opencv-python is used to implement joint filtering upsampling.
+
+
+
 #### II.VAE
 
 ## References
@@ -66,5 +70,11 @@ d.After screening, we obtained about 50k data sets and divided them into trainin
       eprint={2003.10152},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
+      }
+[^7]:@software{freia,
+        author = {Ardizzone, Lynton and Bungert, Till and Draxler, Felix and Köthe, Ullrich and Kruse, Jakob and Schmier, Robert and Sorrenson, Peter},
+        title = {{Framework for Easily Invertible Architectures (FrEIA)}},
+        year = {2018-2022},
+        url = {https://github.com/vislearn/FrEIA}
       }
 
