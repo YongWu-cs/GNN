@@ -20,6 +20,10 @@ b.Then select a picture with a resolution greater than 256*256
 c.Use MMDection[^5] pre-trained solov2[^6] to perform instance segmentation, and select human body instances whose area exceeds 1/5 of the image area to join our data set.
 d.After screening, we obtained about 50k data sets and divided them into training set, validation set and test set according to 9:0.5:0.5.
 
+### 3. Model
+#### I.cINN
+#### II.VAE
+
 ## References
 [^1]: @inproceedings{liu2015faceattributes,
       title = {Deep Learning Face Attributes in the Wild},
