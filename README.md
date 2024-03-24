@@ -67,6 +67,8 @@ In response to the blurriness issue observed in the Naive cVAE, we proposed a ne
 
 ![UNetVAEAchitecture](https://github.com/YongWu-cs/GNN/blob/main/pic_source/UNetVAE/UNetVAEAchitecture.png)
 
+First Training：
+
 Initially, our loss function in traing feature extracter only focused on the reconstruction of grayscale images. However, upon analyzing the results, we found that although it performed well on grayscale images, the generated color images tended to cluster around a single hue, which was not conducive to the subsequent training of our cVAE. 
 
 pic
@@ -82,7 +84,9 @@ After training, we obtained the following results.
 
 From this, it can be seen that we not only achieved the reconstruction of grayscale images but also ensured that the generated color images have a consistent color distribution with the original color images.
 
-pic
+Second Training：
+
+In the second training phase, we froze the encoder of UNet, which is the feature extractor.
 
 Like the loss function of the naive cVAE, the loss function of the UNet-based cVAE also focuses on both the reconstruction loss and the regularization loss.
 - Reconstruction Loss:
