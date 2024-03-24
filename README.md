@@ -6,19 +6,19 @@ The CelebA dataset, short for Celebrities Attributes dataset, is a large-scale f
 
 #### dataset preprocess
 a. cVAE:Divide the data set into training set and test set according to 7:3  
-b.cINN:Divide the data set into training set, validation set and test set according to 9:0.5:0.5
+b. cINN:Divide the data set into training set, validation set and test set according to 9:0.5:0.5
 
 ### 2. our own dataset
 Here we have expanded the task. The data set with only face portraits is not very difficult, so we regenerated a data set including all human bodies and complex backgrounds.
 #### dataset source
-a.OCHuman(Occluded Human) Dataset[^2]  
-b.MPII Human Pose [^3]  
-c.COCO2017 keypoints[^4]  
+a. OCHuman(Occluded Human) Dataset[^2]  
+b. MPII Human Pose [^3]  
+c. COCO2017 keypoints[^4]  
 #### dataset preprocess
-a.We first delete all images with only brightness channel  
-b.Then select a picture with a resolution greater than 256*256   
-c.Use MMDection[^5] pre-trained solov2[^6] to perform instance segmentation, and select human body instances whose area exceeds 1/5 of the image area to join our data set.
-d.After screening, we obtained about 50k data sets and divided them into training set, validation set and test set according to 9:0.5:0.5.
+a. We first delete all images with only brightness channel  
+b. Then select a picture with a resolution greater than 256*256   
+c. Use MMDection[^5] pre-trained solov2[^6] to perform instance segmentation, and select human body instances whose area exceeds 1/5 of the image area to join our data set.
+d. After screening, we obtained about 50k data sets and divided them into training set, validation set and test set according to 9:0.5:0.5.
 
 ### 3. Model
 #### I. cINN
