@@ -63,11 +63,9 @@ It can be observed that the generated images exhibit blurriness. This appears to
 ##### a. cVAE-UNet
 In response to the blurriness issue observed in the Naive cVAE, we proposed a new cVAE architecture based on the UNet structure. UNet utilizes skip connections, which better preserve the details of images compared to traditional convolutional layers, enabling the decoder to better recover fine details from the input images. Additionally, we redesigned the feature extractor based on VGG19.
 
-We first trained the feature extractor.
+![UNetVAEAchitecture](https://github.com/YongWu-cs/GNN/blob/main/pic_source/UNetVAE/UNetVAEAchitecture.png)
 
-pic
-
-Initially, our loss function only focused on the reconstruction of grayscale images. However, upon analyzing the results, we found that although it performed well on grayscale images, the generated color images tended to cluster around a single hue, which was not conducive to the subsequent training of our cVAE. 
+Initially, our loss function in traing feature extracter only focused on the reconstruction of grayscale images. However, upon analyzing the results, we found that although it performed well on grayscale images, the generated color images tended to cluster around a single hue, which was not conducive to the subsequent training of our cVAE. 
 
 pic
 
