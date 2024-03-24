@@ -53,7 +53,7 @@ $$L^{NaiveVAE}=L_{MSE}^{NaiveVAE}+w*L_{KL}^{NaiveVAE}$$
 Where $w$ is a hyperparameter. Through testing, if its value is too large, it fails to generate images. In this experiment, its value is set to 0.00003.
 
 After training, we obtained the following results. 
-![NaiveVAEresult]([https://github.com/YongWu-cs/GNN/blob/main/pic_source/pipeline.png](https://github.com/YongWu-cs/GNN/blob/main/pic_source/NaiveVAE/NaiveVAEResult.png))
+![NaiveVAEResult](https://github.com/YongWu-cs/GNN/blob/main/pic_source/NaiveVAE/NaiveVAEResult.png))
 It can be observed that the generated images exhibit blurriness. This appears to be a common issue with naive cVAE. Furthermore, the variability of the generated images is weak.
 ##### a. cVAE-UNet
 In response to the blurriness issue observed in the Naive cVAE, we proposed a new cVAE architecture based on the UNet structure. UNet utilizes skip connections, which better preserve the details of images compared to traditional convolutional layers, enabling the decoder to better recover fine details from the input images. Additionally, we redesigned the feature extractor based on VGG19.
