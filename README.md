@@ -35,6 +35,9 @@ And to address the problem of lack of semantic information, a new training pipel
 ![pipeline](https://github.com/YongWu-cs/GNN/blob/main/pic_source/pipeline.png)
 
 #### II. cVAE
+
+To ensure that the decoder of VAE learns from the content sampled by the encoder, especially because of training the feature extractor based on UNet, which essentially accomplishes the transformation from grayscale images to color images, we changed the fusion method of features from concatenation to addition. Furthermore, to avoid introducing unnecessary linear layers (whose parameters might become zero, which could also prevent the network from learning from the results sampled from the cVAE encoder and still achieve good performance), we set the dimensionality of the sampled results from the encoder to be the same as the dimensionality of the output tensor of the feature extractor.
+
 ##### a. cVAE-Naive
 We initially employed the naive cVAE structure. We utilized VGG19[^10] as a feature extractor to extract features from grayscale images, and concatenated it with the sampled results from the encoder as input to the decoder.
 
@@ -76,8 +79,6 @@ After training, we obtained the following results.
 pic
 
 From this, it can be seen that we not only achieved the reconstruction of grayscale images but also ensured that the generated color images have a consistent color distribution with the original color images.
-
-Due to training the feature extractor based on UNet, which essentially accomplishes the transformation from grayscale images to color images, in order to prevent subsequent networks from failing to learn from the results sampled from the cVAE encoder, we changed the fusion method of features from concatenation to addition. Furthermore, to avoid introducing unnecessary linear layers (whose parameters might become zero, which could also prevent the network from learning from the results sampled from the cVAE encoder and still achieve good performance), we set the dimensionality of the sampled results from the encoder to be the same as the dimensionality of the output tensor of the feature extractor.
 
 pic
 
