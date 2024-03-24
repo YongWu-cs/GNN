@@ -54,10 +54,7 @@ Where $w$ is a hyperparameter. Through testing, if its value is too large, it fa
 
 After training, we obtained the following results. 
 
-
-<div style="text-align:center">
-    [![NaiveVAEResult]([https://example.com/image.jpg](https://github.com/YongWu-cs/GNN/blob/main/pic_source/NaiveVAE/NaiveVAEResult.png))](https://github.com)
-</div>
+![NaiveVAEResult](https://github.com/YongWu-cs/GNN/blob/main/pic_source/NaiveVAE/NaiveVAEResult.png)
 
 It can be observed that the generated images exhibit blurriness. This appears to be a common issue with naive cVAE. Furthermore, the variability of the generated images is weak.
 ##### a. cVAE-UNet
