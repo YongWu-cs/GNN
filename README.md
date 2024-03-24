@@ -56,7 +56,7 @@ $$L^{NaiveVAE}=L_{MSE}^{NaiveVAE}+w*L_{KL}^{NaiveVAE}$$
 Where $w$ is a hyperparameter. Through testing, if its value is too large, it fails to generate images; if its value is too small, the diversity of generated images is very weak. In this experiment, its value is set to 0.0003.
 
 After training, we obtained the following results. 
-![NaiveVAELoss](https://github.com/YongWu-cs/GNN/blob/main/pic_source/NaiveVAE/NaiveVAE_loss.png)
+![NaiveVAELoss](https://github.com/YongWu-cs/GNN/blob/main/pic_source/NaiveVAE/NaiveVAE_loss.jpg)
 ![NaiveVAEResult](https://github.com/YongWu-cs/GNN/blob/main/pic_source/NaiveVAE/NaiveVAEResult.png)
 
 It can be observed that the generated images exhibit blurriness. This appears to be a common issue with naive cVAE. Furthermore, the variability of the generated images is weak.
@@ -73,7 +73,7 @@ Therefore, we improved the loss function to not only focus on the reconstruction
 $$L_{MSE}^{UNet} = \frac{1}{N} \sum_{i=1}^{N} (x^c_i - \hat{x}^c_i)^2 + \frac{1}{N} \sum_{i=1}^{N} (x^g_i - \hat{x}^g_i)^2 $$
 
 After training, we obtained the following results.
-
+![UNetLoss](https://github.com/YongWu-cs/GNN/blob/main/pic_source/UNetVAE/UNet_loss.jpg)
 ![UNetResult](https://github.com/YongWu-cs/GNN/blob/main/pic_source/UNetVAE/UNetResult.png)
 
 From this, it can be seen that we not only achieved the reconstruction of grayscale images but also ensured that the generated color images have a consistent color distribution with the original color images.
@@ -92,7 +92,7 @@ Like the loss function of the naive cVAE, the loss function of the UNet-based cV
   In this experiment, the value of $w$ is set to 0.00003.
   
 After training, we obtained the following results.
-
+![UNetVAELoss](https://github.com/YongWu-cs/GNN/blob/main/pic_source/UNetVAE/UNetVAE_loss.jpg)
 ![UNetVAEResult](https://github.com/YongWu-cs/GNN/blob/main/pic_source/UNetVAE/UNetVAEResult.png)
 ## References
 [^1]: @inproceedings{liu2015faceattributes,
