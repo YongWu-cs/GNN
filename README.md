@@ -50,7 +50,7 @@ During training, our loss function consists of the following two parts:
 
 So our total loss function is:
 $$L^{NaiveVAE}=L_{MSE}^{NaiveVAE}+w*L_{KL}^{NaiveVAE}$$
-Where $w$ is a hyperparameter. Through testing, if its value is too large, it fails to generate images. In this experiment, its value is set to 0.00003.
+Where $w$ is a hyperparameter. Through testing, if its value is too large, it fails to generate images; if its value is too small, the diversity of generated images is very weak. In this experiment, its value is set to 0.00003.
 
 After training, we obtained the following results. 
 
