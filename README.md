@@ -41,7 +41,7 @@ To ensure that the decoder of VAE learns from the content sampled by the encoder
 ##### a. cVAE-Naive
 We initially employed the naive cVAE structure. We utilized VGG19[^10] as a feature extractor to extract features from grayscale images, and concatenated it with the sampled results from the encoder as input to the decoder.
 
-pic
+![NaiveVAEAchitecture](https://github.com/YongWu-cs/GNN/blob/main/pic_source/NaiveVAE/NaiveVAEAchitecture.png)
 
 During training, our loss function consists of the following two parts:
 - Reconstruction Loss: This component measures how well the VAE can reconstruct the input data. It encourages the decoder to generate outputs that are close to the original inputs.
