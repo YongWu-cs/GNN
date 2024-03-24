@@ -29,7 +29,10 @@ In terms of the overall architecture, we chose the network architecture of GUIDE
 ![cinn_architeture](https://github.com/YongWu-cs/GNN/blob/main/pic_source/architecture.png)
 In addition, for feature extraction of l channel, we also tried resnet_18 as a feature extractor.
 ##### b. our own dataset architeture
-TBD
+As we moved toward more complex data sets, our initial model became too crude, so we updated the model's architecture.   
+![cinn_complex_architeture](https://github.com/YongWu-cs/GNN/blob/main/pic_source/complex_architecture.png)
+And to address the problem of lack of semantic information, a new training pipeline was constructed with reference to the Instance-aware Image Colorization method[^9].  
+![pipeline](https://github.com/YongWu-cs/GNN/blob/main/pic_source/pipeline.png)
 
 #### II.VAE
 
@@ -89,4 +92,19 @@ TBD
       eprint={1907.02392},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
+      }
+[^9]: @article{DBLP:journals/corr/abs-2005-10825,
+        author       = {Jheng{-}Wei Su and
+                        Hung{-}Kuo Chu and
+                        Jia{-}Bin Huang},
+        title        = {Instance-aware Image Colorization},
+        journal      = {CoRR},
+        volume       = {abs/2005.10825},
+        year         = {2020},
+        url          = {https://arxiv.org/abs/2005.10825},
+        eprinttype    = {arXiv},
+        eprint       = {2005.10825},
+        timestamp    = {Thu, 06 Jul 2023 10:01:56 +0200},
+        biburl       = {https://dblp.org/rec/journals/corr/abs-2005-10825.bib},
+        bibsource    = {dblp computer science bibliography, https://dblp.org}
       }
