@@ -56,7 +56,7 @@ After training, we obtained the following results.
 
 pic
 
-It can be observed that the generated images exhibit blurriness.
+It can be observed that the generated images exhibit blurriness. This appears to be a common issue with naive cVAE.
 ## References
 [^1]: @inproceedings{liu2015faceattributes,
       title = {Deep Learning Face Attributes in the Wild},
