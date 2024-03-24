@@ -76,7 +76,7 @@ $$L_{MSE}^{UNet} = \frac{1}{N} \sum_{i=1}^{N} (x^c_i - \hat{x}^c_i)^2 + \frac{1}
 
 After training, we obtained the following results.
 
-pic
+![UNetResult](https://github.com/YongWu-cs/GNN/blob/main/pic_source/UNetVAE/UNetResult.png)
 
 From this, it can be seen that we not only achieved the reconstruction of grayscale images but also ensured that the generated color images have a consistent color distribution with the original color images.
 
