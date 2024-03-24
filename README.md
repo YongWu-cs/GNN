@@ -5,10 +5,10 @@ The process involves employing generative networks to colorize black and white p
 The CelebA dataset, short for Celebrities Attributes dataset, is a large-scale face attributes dataset designed for research in the fields of machine learning and computer vision, particularly for the development and evaluation of algorithms involving facial recognition, facial attribute recognition, facial editing, and many others.
 
 #### dataset preprocess
-a.vae:Divide the data set into training set and test set according to 7:3  
+a. cVAE:Divide the data set into training set and test set according to 7:3  
 b.cINN:Divide the data set into training set, validation set and test set according to 9:0.5:0.5
 
-### 2.our own dataset
+### 2. our own dataset
 Here we have expanded the task. The data set with only face portraits is not very difficult, so we regenerated a data set including all human bodies and complex backgrounds.
 #### dataset source
 a.OCHuman(Occluded Human) Dataset[^2]  
@@ -21,7 +21,7 @@ c.Use MMDection[^5] pre-trained solov2[^6] to perform instance segmentation, and
 d.After screening, we obtained about 50k data sets and divided them into training set, validation set and test set according to 9:0.5:0.5.
 
 ### 3. Model
-#### I.cINN
+#### I. cINN
 All code is based on FrEIA[^7] and pytorch.And opencv-python is used to implement joint filtering upsampling.
 
 ##### a. celebA architeture
@@ -34,8 +34,10 @@ As we moved toward more complex data sets, our initial model became too crude, s
 And to address the problem of lack of semantic information, a new training pipeline was constructed with reference to the Instance-aware Image Colorization method[^9].  
 ![pipeline](https://github.com/YongWu-cs/GNN/blob/main/pic_source/pipeline.png)
 
-#### II.VAE
-
+#### II. cVAE
+##### a. cVAE-Naive
+We initially employed the naive cVAE structure. We utilized VGG19[^10] as a feature extractor to extract features from grayscale images, and concatenated it with the sampled results from the encoder as input to the decoder.
+pic
 ## References
 [^1]: @inproceedings{liu2015faceattributes,
       title = {Deep Learning Face Attributes in the Wild},
@@ -107,4 +109,10 @@ And to address the problem of lack of semantic information, a new training pipel
         timestamp    = {Thu, 06 Jul 2023 10:01:56 +0200},
         biburl       = {https://dblp.org/rec/journals/corr/abs-2005-10825.bib},
         bibsource    = {dblp computer science bibliography, https://dblp.org}
+      }
+[^10]: @article{simonyan2014very,
+        title={Very deep convolutional networks for large-scale image recognition},
+        author={Simonyan, Karen and Zisserman, Andrew},
+        journal={arXiv preprint arXiv:1409.1556},
+        year={2014}
       }
