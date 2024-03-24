@@ -56,7 +56,7 @@ $$L^{NaiveVAE}=L_{MSE}^{NaiveVAE}+w*L_{KL}^{NaiveVAE}$$
 Where $w$ is a hyperparameter. Through testing, if its value is too large, it fails to generate images; if its value is too small, the diversity of generated images is very weak. In this experiment, its value is set to 0.0003.
 
 After training, we obtained the following results. 
-
+![NaiveVAELoss](https://github.com/YongWu-cs/GNN/blob/main/pic_source/NaiveVAE/NaiveVAE_loss.png)
 ![NaiveVAEResult](https://github.com/YongWu-cs/GNN/blob/main/pic_source/NaiveVAE/NaiveVAEResult.png)
 
 It can be observed that the generated images exhibit blurriness. This appears to be a common issue with naive cVAE. Furthermore, the variability of the generated images is weak.
