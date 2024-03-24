@@ -95,7 +95,7 @@ Like the loss function of the naive cVAE, the loss function of the UNet-based cV
   
 After training, we obtained the following results.
 
-pic
+![UNetVAEResult](https://github.com/YongWu-cs/GNN/blob/main/pic_source/UNetVAE/UNetVAEResult.png)
 ## References
 [^1]: @inproceedings{liu2015faceattributes,
       title = {Deep Learning Face Attributes in the Wild},
