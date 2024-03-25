@@ -7,3 +7,4 @@ The code structure is not very good due to timing issues.Due to training time co
 4. Use create_ab_partition_base_instance.py and create_ab_partition to create instance-shaded global images and preserve instance-shaded global images.
 5. Modify config.py to set the global model
 6. Use train.py and eval.py to train and evaluate models
+7. Use style_generation.py to generate colorization based on reference image.
