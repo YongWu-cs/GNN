@@ -74,7 +74,7 @@ First Training：Learning features solely from grayscale images using only the f
 
 Initially, our loss function in traing feature extracter only focused on the reconstruction of grayscale images. However, upon analyzing the results, we found that although it performed well on grayscale images, the generated color images tended to cluster around a single hue, which was not conducive to the subsequent training of our cVAE. 
 
-pic
+![UNetBadResult](https://github.com/YongWu-cs/GNN/blob/main/pic_source/UNetVAE/UNetBadResult.png)
 
 Therefore, we improved the loss function to not only focus on the reconstruction of grayscale images but also on the reconstruction of color images.
 $$L_{MSE}^{UNet} = \frac{1}{N} \sum_{i=1}^{N} (x^c_i - \hat{x}^c_i)^2 + \frac{1}{N} \sum_{i=1}^{N} (x^g_i - \hat{x}^g_i)^2 $$
