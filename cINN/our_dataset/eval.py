@@ -150,8 +150,8 @@ def record_compare_pic(wandb,n,img_folder,test_folder="autodl-tmp/dataset/test")
         wandb.log({"{}".format(random_base_name[idx]).format(idx): table})
 
 if __name__=="__main__":
-    model_path="autodl-tmp/continue_train_in_all_area/resnet_transformer/check_point/resnet_transformer_new_full_view_model_30.pt"
-    img_folder='autodl-tmp/instance_aware/temp/result'
+    model_path="autodl-tmp/instance_based/resnet_transformer/check_point/resnet_transformer_instance_based_20.pt"
+    img_folder='autodl-tmp/instance_based/tresnet_transformeremp/result'
     test_folder=config.dataset_path+"/test"
     num=8
     

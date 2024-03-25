@@ -61,7 +61,7 @@ for key in all_images.keys():
     image_list=all_images[key]
     create_folder('autodl-tmp/ab_part_colorization/{}'.format(key))
     for img in tqdm(image_list):
-#        im=Image.open(img)
+        im=Image.open(img)
 
         image_name=os.path.basename(img)
         if key=="train":

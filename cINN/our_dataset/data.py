@@ -94,9 +94,16 @@ class LabColorDataset(Dataset):
     def __getitem__(self, idx):
         im = Image.open(self.files[idx])
         base_name=os.path.basename(self.files[idx])
-        rand_choose=random.randint(0,2)
+        rand_choose=random.randint(0,4)
         try:
-            img_padding=Image.open("autodl-tmp/{}/{}/{}".format(rand_choose,self.mode,base_name))
+            if self.mode=="train":
+                if rand_choose>2:
+                    img_padding=Image.open("autodl-tmp/ab_part_colorization/{}/{}".format(self.mode,base_name))
+                else:
+                    img_padding=Image.open("autodl-tmp/ab_part_colorization/{}/{}/{}".format(rand_choose,self.mode,base_name))
+            else:
+                rand_choose=random.randint(0,2)
+                img_padding=Image.open("autodl-tmp/ab_part_colorization/{}/{}/{}".format(rand_choose,self.mode,base_name))
 
             im,img_padding=self.transform([im,img_padding])
             im = self.to_tensor(im).numpy()

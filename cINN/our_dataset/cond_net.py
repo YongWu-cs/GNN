@@ -329,6 +329,157 @@ class ResNetTransformer(nn.Module):
             if param.requires_grad:
                 yield param
 
+class ResNet50Transformer(nn.Module):
+    def __init__(self, resnet_out_dim=2048, transformer_input_dim=1024):
+        super(ResNet50Transformer, self).__init__()
+        resnet=models.resnet50(weights=models.ResNet50_Weights.DEFAULT)
+        self.adaptation_layer = nn.Linear(resnet_out_dim, transformer_input_dim)
+        self.transformer = TransformerModel(input_dim=transformer_input_dim, hidden_dim=3072, num_heads=8, num_layers=1)
+
+        self.conv1 = resnet.conv1
+        self.bn1 = resnet.bn1
+        self.relu = resnet.relu
+        self.maxpool = resnet.maxpool
+
+        self.layer1 = resnet.layer1
+        self.layer2 = resnet.layer2
+        self.layer3 = resnet.layer3
+        self.layer4 = resnet.layer4
+        self.avgpool = resnet.avgpool
+
+
+    def get_condition_nodes(self):
+        features = []
+        x=torch.randn(1,3, 256, 256)
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = self.relu(x)
+        x = self.maxpool(x)
+        
+        x = self.layer1(x)
+        features.append((int(x.size(1)), int(x.size(2)), int(x.size(3))))
+        x = self.layer2(x)
+        features.append((int(x.size(1)), int(x.size(2)), int(x.size(3))))
+        x = self.layer3(x)
+        features.append((int(x.size(1)), int(x.size(2)), int(x.size(3))))
+        x = self.layer4(x)
+        features.append((int(x.size(1)), int(x.size(2)), int(x.size(3))))
+        x=self.avgpool(x)
+        x = torch.flatten(x, 1)
+        x = self.adaptation_layer(x)
+        x = x.unsqueeze(1)
+        x = self.transformer(x)
+        x=torch.squeeze(x,dim=1)
+        features.append(int(x.size(1)))
+        
+        return features
+
+    def forward(self, x):
+        features = []
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = self.relu(x)
+        x = self.maxpool(x)
+        
+        x = self.layer1(x)
+        features.append(x)
+        x = self.layer2(x)
+        features.append(x)
+        x = self.layer3(x)
+        features.append(x)
+        x = self.layer4(x)
+        features.append(x)
+        x = self.avgpool(x)
+        x = torch.flatten(x, 1)
+        x = self.adaptation_layer(x)
+        x = x.unsqueeze(1)
+        x = self.transformer(x)
+        x = torch.squeeze(x,dim=1)
+        features.append(x)
+
+        return features
+
+    def get_trainable_parameters(self):
+        for param in self.parameters():
+            if param.requires_grad:
+                yield param
+
+class ResNet34Transformer(nn.Module):
+    def __init__(self, resnet_out_dim=512, transformer_input_dim=512):
+        super(ResNet50Transformer, self).__init__()
+        resnet=models.resnet34(weights=models.ResNet50_Weights.DEFAULT)
+        self.adaptation_layer = nn.Linear(resnet_out_dim, transformer_input_dim)
+        self.transformer = TransformerModel(input_dim=transformer_input_dim, hidden_dim=3072, num_heads=8, num_layers=1)
+
+        self.conv1 = resnet.conv1
+        self.bn1 = resnet.bn1
+        self.relu = resnet.relu
+        self.maxpool = resnet.maxpool
+
+        self.layer1 = resnet.layer1
+        self.layer2 = resnet.layer2
+        self.layer3 = resnet.layer3
+        self.layer4 = resnet.layer4
+        self.avgpool = resnet.avgpool
+
+
+    def get_condition_nodes(self):
+        features = []
+        x=torch.randn(1,3, 256, 256)
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = self.relu(x)
+        x = self.maxpool(x)
+        
+        x = self.layer1(x)
+        features.append((int(x.size(1)), int(x.size(2)), int(x.size(3))))
+        x = self.layer2(x)
+        features.append((int(x.size(1)), int(x.size(2)), int(x.size(3))))
+        x = self.layer3(x)
+        features.append((int(x.size(1)), int(x.size(2)), int(x.size(3))))
+        x = self.layer4(x)
+        features.append((int(x.size(1)), int(x.size(2)), int(x.size(3))))
+        x=self.avgpool(x)
+        x = torch.flatten(x, 1)
+        x = self.adaptation_layer(x)
+        x = x.unsqueeze(1)
+        x = self.transformer(x)
+        x=torch.squeeze(x,dim=1)
+        features.append(int(x.size(1)))
+        
+        return features
+
+    def forward(self, x):
+        features = []
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = self.relu(x)
+        x = self.maxpool(x)
+        
+        x = self.layer1(x)
+        features.append(x)
+        x = self.layer2(x)
+        features.append(x)
+        x = self.layer3(x)
+        features.append(x)
+        x = self.layer4(x)
+        features.append(x)
+        x = self.avgpool(x)
+        x = torch.flatten(x, 1)
+        x = self.adaptation_layer(x)
+        x = x.unsqueeze(1)
+        x = self.transformer(x)
+        x = torch.squeeze(x,dim=1)
+        features.append(x)
+
+        return features
+
+    def get_trainable_parameters(self):
+        for param in self.parameters():
+            if param.requires_grad:
+                yield param
+
+
 if __name__=="__main__":
     cond=resnet_backbone()
     features=cond.get_condition_nodes()

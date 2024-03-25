@@ -7,7 +7,7 @@ import FrEIA.modules as Fm
 import instance_config as config
 import torch.nn.init as init
 from utils import create_folder
-from cond_net import CondNet,resnet_backbone,resnet50_backbone
+from cond_net import CondNet,resnet_backbone,resnet50_backbone,ResNetTransformer,ResNet50Transformer,ResNet34Transformer
 
 ndim_total=2*config.ab_h_w*config.ab_h_w
 #分为实例网络和全局网络，全局网络使用transformer提取到的特征，实例网络使用cnn提取到的特征
@@ -26,6 +26,18 @@ class ColorizationCINN(nn.Module):
 
         if config.cond_net=="resnet_50":
             self.cond_net=resnet50_backbone()
+            self.cond_feautre=self.cond_net.get_condition_nodes()
+        
+        if config.cond_net=="resnet_transformer":
+            self.cond_net=ResNetTransformer()
+            self.cond_feautre=self.cond_net.get_condition_nodes()
+        
+        if config.cond_net=="resnet34_transformer":
+            self.cond_net=ResNet50Transformer()
+            self.cond_feautre=self.cond_net.get_condition_nodes()
+
+        if config.cond_net=="resnet50_transformer":
+            self.cond_net=ResNet34Transformer()
             self.cond_feautre=self.cond_net.get_condition_nodes()
 
         self.cinn = self.build_inn(self.cond_feautre)

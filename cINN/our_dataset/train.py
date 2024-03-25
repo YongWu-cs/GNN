@@ -20,7 +20,7 @@ if __name__=="__main__":
     if config.use_log:
         wandb.init(project='GNN',
             name=config.run_name,
-            config=config)
+            config=config_dict)
     torch.multiprocessing.freeze_support()
     cinn = model.ColorizationCINN()
     if config.use_log:
