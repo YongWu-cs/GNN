@@ -34,6 +34,9 @@ As we moved toward more complex data sets, our initial model became too crude, s
 And to address the problem of lack of semantic information, a new training pipeline was constructed with reference to the Instance-aware Image Colorization method[^9].  
 ![pipeline](https://github.com/YongWu-cs/GNN/blob/main/pic_source/pipeline.png)
 
+##### c. train and eval
+all the relative information can be found in Link:https://wandb.ai/yongwu_cs2024/GNN?nw=nwuseryongwu_cs2024
+
 #### II. cVAE
 
 To ensure that the decoder of VAE learns from the content sampled by the encoder, especially because of training the feature extractor based on UNet, which essentially accomplishes the transformation from grayscale images to color images, we changed the fusion method of features from concatenation to addition. Furthermore, to avoid introducing unnecessary linear layers (whose parameters might become zero, which could also prevent the network from learning from the results sampled from the cVAE encoder and still achieve good performance), we set the dimensionality of the sampled results from the encoder to be the same as the dimensionality of the output tensor of the feature extractor.
