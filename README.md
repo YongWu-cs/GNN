@@ -27,10 +27,10 @@ All code is based on FrEIA[^7] and pytorch.And opencv-python is used to implemen
 ##### a. celebA architeture
 In terms of the overall architecture, we chose the network architecture of GUIDED IMAGE GENERATION WITH CONDITIONAL INVERTIBLE NEURAL NETWORKS[^8].
 ![cinn_architeture](https://github.com/YongWu-cs/GNN/blob/main/pic_source/architecture.png)
-In addition, for feature extraction of l channel, we also tried resnet_18 as a feature extractor.
 ##### b. our own dataset architeture
 As we moved toward more complex data sets, our initial model became too crude, so we updated the model's architecture.   
-![cinn_complex_architeture](https://github.com/YongWu-cs/GNN/blob/main/pic_source/complex_architecture.png)
+![cinn_complex_architeture](https://github.com/YongWu-cs/GNN/blob/main/pic_source/complex_architecture.png)  
+In addition, for feature extraction of l channel, we also tried resnet_18, resnet_50, resnet_18_transformer as a feature extractor.  
 And to address the problem of lack of semantic information, a new training pipeline was constructed with reference to the Instance-aware Image Colorization method[^9].  
 ![pipeline](https://github.com/YongWu-cs/GNN/blob/main/pic_source/pipeline.png)
 
